@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartFarm Credit - Market Prices & Trends</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -239,7 +241,7 @@
         .search-filter button:hover {
             background: #219653;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Price Cards */
@@ -263,7 +265,7 @@
 
         .price-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .price-card-header {
@@ -375,7 +377,7 @@
         .btn-view:hover {
             background: #e6b800;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Price Trends Section */
@@ -490,7 +492,7 @@
             border-radius: 10px;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .stat-value {
@@ -530,7 +532,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Empty State */
@@ -555,7 +559,7 @@
             background: var(--success);
             color: white;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transform: translateX(150%);
             transition: transform 0.3s ease;
@@ -596,16 +600,17 @@
                 align-items: stretch;
             }
 
-            .region-selector, .search-filter {
+            .region-selector,
+            .search-filter {
                 width: 100%;
             }
-            
+
             .trends-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
-            
+
             .trends-controls {
                 width: 100%;
                 justify-content: space-between;
@@ -614,14 +619,29 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .price-card {
@@ -629,12 +649,29 @@
             animation-fill-mode: both;
         }
 
-        .price-card:nth-child(1) { animation-delay: 0.1s; }
-        .price-card:nth-child(2) { animation-delay: 0.2s; }
-        .price-card:nth-child(3) { animation-delay: 0.3s; }
-        .price-card:nth-child(4) { animation-delay: 0.4s; }
-        .price-card:nth-child(5) { animation-delay: 0.5s; }
-        .price-card:nth-child(6) { animation-delay: 0.6s; }
+        .price-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .price-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .price-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .price-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .price-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .price-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
 
         /* Pulse animation for important elements */
         .pulse {
@@ -653,36 +690,33 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#f1c40f"/>
-                    <path d="M3 12L12 17L21 12" stroke="#f1c40f" stroke-width="2"/>
-                    <path d="M3 17L12 22L21 17" stroke="#f1c40f" stroke-width="2"/>
-                    <circle cx="12" cy="12" r="2" fill="#f1c40f"/>
-                </svg>
+                <i class="fas fa-seedling logo-icon"
+                    style="color: var(--secondary); font-size: 24px; margin-right: 10px;"></i>
                 SmartFarm <span>Credit</span>
             </a>
-            
+
             <div style="display: flex; align-items: center;">
                 <ul class="nav-links">
-                  <li><a href="homepage.html" data-i18n="nav.home">Home</a></li>
-                  <li><a href="marketprice.html" data-i18n="nav.prices">Market Prices</a></li>
-                  <li><a href="guide.html" data-i18n="nav.guides">Crop Guides</a></li>
-                  <li><a href="loan.html" data-i18n="nav.loans">Loans</a></li>
-                  <li><a href="connect.html" data-i18n="nav.connect">Connect</a></li>
-                  <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                    <li><a href="homepage.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="marketprice.html" data-i18n="nav.prices">Market Prices</a></li>
+                    <li><a href="guide.html" data-i18n="nav.guides">Crop Guides</a></li>
+                    <li><a href="loan.html" data-i18n="nav.loans">Loans</a></li>
+                    <li><a href="connect.html" data-i18n="nav.connect">Connect</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 </ul>
-                
+
                 <div class="language-toggle">
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="kin">KIN</button>
                 </div>
             </div>
-            
+
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
@@ -696,7 +730,8 @@
     <div class="container">
         <div class="page-header">
             <h1 data-i18n="prices.title">Market Prices & Trends</h1>
-            <p data-i18n="prices.subtitle">Real-time agricultural commodity prices across Rwanda's major markets. Updated hourly. <span class="updated-indicator"></span></p>
+            <p data-i18n="prices.subtitle">Real-time agricultural commodity prices across Rwanda's major markets.
+                Updated hourly. <span class="updated-indicator"></span></p>
         </div>
 
         <!-- Market Price Controls -->
@@ -733,7 +768,8 @@
             </div>
 
             <div class="search-filter">
-                <input type="text" placeholder="Search crops..." id="search-crop" data-i18n-placeholder="prices.search_placeholder">
+                <input type="text" placeholder="Search crops..." id="search-crop"
+                    data-i18n-placeholder="prices.search_placeholder">
                 <button id="search-btn" data-i18n="prices.search"><i class="fas fa-search"></i> Search</button>
             </div>
         </div>
@@ -775,12 +811,12 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="trends-container">
                 <div class="trend-chart-container">
                     <canvas id="trend-chart" height="350"></canvas>
                 </div>
-                
+
                 <div class="trend-analysis">
                     <h3>Trend Analysis</h3>
                     <div class="analysis-item">
@@ -795,7 +831,7 @@
                         <h4>Recommendation</h4>
                         <p id="recommendation">Consider selling now to capitalize on current high prices.</p>
                     </div>
-                    
+
                     <div class="trend-stats">
                         <div class="stat-card">
                             <div class="stat-value stat-up" id="avg-price">2,450</div>
@@ -929,54 +965,54 @@
             coffee: {
                 '7': [2350, 2400, 2420, 2380, 2450, 2430, 2450],
                 '30': [2200, 2250, 2300, 2280, 2320, 2350, 2380, 2400, 2420, 2380, 2350, 2400, 2420, 2450, 2430, 2400, 2380, 2350, 2320, 2300, 2280, 2250, 2200, 2180, 2150, 2200, 2250, 2300, 2350, 2400],
-                '90': Array.from({length: 90}, (_, i) => 2000 + Math.sin(i/10) * 300 + Math.random() * 100),
-                '365': Array.from({length: 12}, (_, i) => {
+                '90': Array.from({ length: 90 }, (_, i) => 2000 + Math.sin(i / 10) * 300 + Math.random() * 100),
+                '365': Array.from({ length: 12 }, (_, i) => {
                     const base = 2000;
-                    const seasonal = Math.sin(i/2) * 400;
+                    const seasonal = Math.sin(i / 2) * 400;
                     const trend = i * 20;
                     return Math.round(base + seasonal + trend + Math.random() * 100);
                 })
             },
             maize: {
                 '7': [680, 670, 690, 700, 710, 705, 700],
-                '30': Array.from({length: 30}, (_, i) => 650 + Math.sin(i/5) * 30 + Math.random() * 20),
-                '90': Array.from({length: 90}, (_, i) => 600 + Math.sin(i/15) * 50 + Math.random() * 30),
-                '365': Array.from({length: 12}, (_, i) => {
+                '30': Array.from({ length: 30 }, (_, i) => 650 + Math.sin(i / 5) * 30 + Math.random() * 20),
+                '90': Array.from({ length: 90 }, (_, i) => 600 + Math.sin(i / 15) * 50 + Math.random() * 30),
+                '365': Array.from({ length: 12 }, (_, i) => {
                     const base = 550;
-                    const seasonal = Math.sin(i/2) * 100;
+                    const seasonal = Math.sin(i / 2) * 100;
                     const trend = i * 10;
                     return Math.round(base + seasonal + trend + Math.random() * 50);
                 })
             },
             beans: {
                 '7': [1150, 1170, 1200, 1180, 1190, 1210, 1200],
-                '30': Array.from({length: 30}, (_, i) => 1100 + Math.sin(i/4) * 50 + Math.random() * 30),
-                '90': Array.from({length: 90}, (_, i) => 1000 + Math.sin(i/12) * 100 + Math.random() * 50),
-                '365': Array.from({length: 12}, (_, i) => {
+                '30': Array.from({ length: 30 }, (_, i) => 1100 + Math.sin(i / 4) * 50 + Math.random() * 30),
+                '90': Array.from({ length: 90 }, (_, i) => 1000 + Math.sin(i / 12) * 100 + Math.random() * 50),
+                '365': Array.from({ length: 12 }, (_, i) => {
                     const base = 900;
-                    const seasonal = Math.sin(i/2) * 150;
+                    const seasonal = Math.sin(i / 2) * 150;
                     const trend = i * 25;
                     return Math.round(base + seasonal + trend + Math.random() * 80);
                 })
             },
             tea: {
                 '7': [1750, 1780, 1800, 1820, 1810, 1790, 1800],
-                '30': Array.from({length: 30}, (_, i) => 1700 + Math.sin(i/6) * 80 + Math.random() * 40),
-                '90': Array.from({length: 90}, (_, i) => 1600 + Math.sin(i/10) * 150 + Math.random() * 60),
-                '365': Array.from({length: 12}, (_, i) => {
+                '30': Array.from({ length: 30 }, (_, i) => 1700 + Math.sin(i / 6) * 80 + Math.random() * 40),
+                '90': Array.from({ length: 90 }, (_, i) => 1600 + Math.sin(i / 10) * 150 + Math.random() * 60),
+                '365': Array.from({ length: 12 }, (_, i) => {
                     const base = 1500;
-                    const seasonal = Math.sin(i/2) * 200;
+                    const seasonal = Math.sin(i / 2) * 200;
                     const trend = i * 30;
                     return Math.round(base + seasonal + trend + Math.random() * 100);
                 })
             },
             potatoes: {
                 '7': [800, 810, 820, 815, 830, 825, 850],
-                '30': Array.from({length: 30}, (_, i) => 750 + Math.sin(i/3) * 60 + Math.random() * 30),
-                '90': Array.from({length: 90}, (_, i) => 700 + Math.sin(i/8) * 100 + Math.random() * 50),
-                '365': Array.from({length: 12}, (_, i) => {
+                '30': Array.from({ length: 30 }, (_, i) => 750 + Math.sin(i / 3) * 60 + Math.random() * 30),
+                '90': Array.from({ length: 90 }, (_, i) => 700 + Math.sin(i / 8) * 100 + Math.random() * 50),
+                '365': Array.from({ length: 12 }, (_, i) => {
                     const base = 650;
-                    const seasonal = Math.sin(i/2) * 120;
+                    const seasonal = Math.sin(i / 2) * 120;
                     const trend = i * 15;
                     return Math.round(base + seasonal + trend + Math.random() * 60);
                 })
@@ -1017,36 +1053,36 @@
         function initTrendChart(crop, period) {
             const data = trendData[crop][period];
             let labels;
-            
+
             if (period === '7') {
                 labels = ['6 days ago', '5 days ago', '4 days ago', '3 days ago', '2 days ago', 'Yesterday', 'Today'];
             } else if (period === '30') {
-                labels = Array.from({length: 30}, (_, i) => `${29-i} days ago`);
+                labels = Array.from({ length: 30 }, (_, i) => `${29 - i} days ago`);
             } else if (period === '90') {
-                labels = Array.from({length: 90}, (_, i) => `${89-i} days ago`);
+                labels = Array.from({ length: 90 }, (_, i) => `${89 - i} days ago`);
             } else if (period === '365') {
                 labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             }
-            
+
             if (priceChart) {
                 priceChart.destroy();
             }
-            
+
             // Calculate trend statistics
             const currentPrice = data[data.length - 1];
             const previousPrice = data[0];
             const priceChange = ((currentPrice - previousPrice) / previousPrice * 100).toFixed(1);
             const avgPrice = (data.reduce((a, b) => a + b, 0) / data.length).toFixed(0);
-            
+
             // Calculate volatility (standard deviation as percentage of average)
             const variance = data.reduce((acc, val) => acc + Math.pow(val - avgPrice, 2), 0) / data.length;
             const volatility = (Math.sqrt(variance) / avgPrice * 100).toFixed(1);
-            
+
             // Update trend analysis
             document.getElementById('current-trend').textContent = trendAnalysis[crop][period].current;
             document.getElementById('market-outlook').textContent = trendAnalysis[crop][period].outlook;
             document.getElementById('recommendation').textContent = trendAnalysis[crop][period].recommendation;
-            
+
             // Update stats
             document.getElementById('avg-price').textContent = avgPrice;
             document.getElementById('price-change').textContent = `${priceChange > 0 ? '+' : ''}${priceChange}%`;
@@ -1054,7 +1090,7 @@
             document.getElementById('volatility').textContent = `${volatility}%`;
             document.getElementById('trend-strength').textContent = Math.abs(priceChange) > 10 ? 'Strong' : 'Moderate';
             document.getElementById('trend-strength').className = `stat-value ${priceChange > 0 ? 'stat-up' : 'stat-down'}`;
-            
+
             priceChart = new Chart(trendCtx, {
                 type: 'line',
                 data: {
@@ -1087,7 +1123,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return `${context.parsed.y} RWF/kg`;
                                 }
                             }
@@ -1122,10 +1158,10 @@
         function showNotification(message) {
             const notification = document.getElementById('notification');
             const notificationText = document.getElementById('notification-text');
-            
+
             notificationText.textContent = message;
             notification.classList.add('show');
-            
+
             setTimeout(() => {
                 notification.classList.remove('show');
             }, 3000);
@@ -1136,30 +1172,30 @@
             const grid = document.getElementById('price-grid');
             const loading = document.getElementById('loading');
             const emptyState = document.getElementById('empty-state');
-            
+
             // Show loading
             grid.innerHTML = '';
             loading.style.display = 'flex';
             emptyState.style.display = 'none';
-            
+
             // Simulate API call delay
             setTimeout(() => {
                 const crops = cropsData[district] || Object.values(cropsData).flat();
-                
+
                 if (crops.length === 0) {
                     emptyState.style.display = 'block';
                     loading.style.display = 'none';
                     return;
                 }
-                
+
                 grid.innerHTML = '';
-                
+
                 crops.forEach((crop, index) => {
                     const isPositive = crop.change >= 0;
                     const changeClass = isPositive ? 'change-up' : 'change-down';
                     const trendClass = isPositive ? 'trend-up' : 'trend-down';
                     const trendSymbol = isPositive ? '↑' : '↓';
-                    
+
                     const card = document.createElement('div');
                     card.className = 'price-card';
                     card.style.animationDelay = `${index * 0.1}s`;
@@ -1169,7 +1205,7 @@
                         initTrendChart(crop.name.toLowerCase(), '7');
                         showNotification(`${crop.name} trend analysis loaded`);
                     };
-                    
+
                     card.innerHTML = `
                         <div class="price-card-header">
                             <h3>${crop.name}</h3>
@@ -1193,17 +1229,17 @@
                             </div>
                         </div>
                     `;
-                    
+
                     grid.appendChild(card);
-                    
+
                     // Add mini chart to card
                     const miniCtx = card.querySelector('canvas').getContext('2d');
                     new Chart(miniCtx, {
                         type: 'line',
                         data: {
-                            labels: Array.from({length: 7}, (_, i) => i+1),
+                            labels: Array.from({ length: 7 }, (_, i) => i + 1),
                             datasets: [{
-                                data: Array.from({length: 7}, () => Math.floor(crop.price * (0.9 + Math.random() * 0.2))),
+                                data: Array.from({ length: 7 }, () => Math.floor(crop.price * (0.9 + Math.random() * 0.2))),
                                 borderColor: isPositive ? '#2ecc71' : '#e74c3c',
                                 borderWidth: 2,
                                 tension: 0.4,
@@ -1224,7 +1260,7 @@
                         }
                     });
                 });
-                
+
                 loading.style.display = 'none';
                 showNotification(`Prices for ${district === 'all' ? 'all regions' : district} loaded`);
             }, 800);
@@ -1232,7 +1268,7 @@
 
         // Language switching
         let currentLang = 'en';
-        
+
         function switchLanguage(lang) {
             currentLang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1241,64 +1277,64 @@
                     el.textContent = translations[lang][key];
                 }
             });
-            
+
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
                 if (translations[lang][key]) {
                     el.placeholder = translations[lang][key];
                 }
             });
-            
+
             // Update chart if it exists
             if (priceChart) {
                 priceChart.update();
             }
-            
+
             // Update price cards
             generatePriceCards(document.getElementById('region').value);
         }
 
         // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Set up language toggle
             document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     switchLanguage(this.dataset.lang);
                 });
             });
-            
+
             // Set up region selector
-            document.getElementById('region').addEventListener('change', function() {
+            document.getElementById('region').addEventListener('change', function () {
                 generatePriceCards(this.value);
             });
-            
+
             // Set up search
-            document.getElementById('search-btn').addEventListener('click', function() {
+            document.getElementById('search-btn').addEventListener('click', function () {
                 const searchTerm = document.getElementById('search-crop').value.toLowerCase();
                 const region = document.getElementById('region').value;
-                
+
                 if (!searchTerm) {
                     generatePriceCards(region);
                     return;
                 }
-                
+
                 const grid = document.getElementById('price-grid');
                 const emptyState = document.getElementById('empty-state');
-                
+
                 // Filter crops
                 const allCrops = cropsData[region] || Object.values(cropsData).flat();
-                const filteredCrops = allCrops.filter(crop => 
+                const filteredCrops = allCrops.filter(crop =>
                     crop.name.toLowerCase().includes(searchTerm)
                 );
-                
+
                 if (filteredCrops.length === 0) {
                     grid.innerHTML = '';
                     emptyState.style.display = 'block';
                     return;
                 }
-                
+
                 // Re-render with filtered crops
                 grid.innerHTML = '';
                 filteredCrops.forEach((crop, index) => {
@@ -1306,11 +1342,11 @@
                     const changeClass = isPositive ? 'change-up' : 'change-down';
                     const trendClass = isPositive ? 'trend-up' : 'trend-down';
                     const trendSymbol = isPositive ? '↑' : '↓';
-                    
+
                     const card = document.createElement('div');
                     card.className = 'price-card';
                     card.style.animationDelay = `${index * 0.1}s`;
-                    
+
                     card.innerHTML = `
                         <div class="price-card-header">
                             <h3>${crop.name}</h3>
@@ -1334,16 +1370,16 @@
                             </div>
                         </div>
                     `;
-                    
+
                     grid.appendChild(card);
                 });
-                
+
                 emptyState.style.display = 'none';
             });
-            
+
             // Set up trend period selector
             document.querySelectorAll('.period-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     const period = this.dataset.period;
@@ -1351,23 +1387,24 @@
                     initTrendChart(crop, period);
                 });
             });
-            
+
             // Set up crop selector for trends
-            document.getElementById('trend-crop-selector').addEventListener('change', function() {
+            document.getElementById('trend-crop-selector').addEventListener('change', function () {
                 const crop = this.value;
                 const period = document.querySelector('.period-btn.active').dataset.period;
                 initTrendChart(crop, period);
             });
-            
+
             // Mobile menu toggle
-            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
                 document.querySelector('.nav-links').classList.toggle('active');
             });
-            
+
             // Initialize with default data
             generatePriceCards('all');
             initTrendChart('coffee', '7');
         });
     </script>
 </body>
+
 </html>

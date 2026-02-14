@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect - SmartFarm Credit</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and Base Styles */
@@ -13,19 +15,19 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #fef9f4;
             color: #333333;
             line-height: 1.6;
         }
-        
+
         a {
             text-decoration: none;
             color: inherit;
         }
-        
+
         /* Utility Classes */
         .container {
             width: 100%;
@@ -33,7 +35,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -46,33 +48,33 @@
             cursor: pointer;
             font-size: 16px;
         }
-        
+
         .btn:hover {
             background-color: #e6b800;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-primary {
             background-color: #27ae60;
             color: white;
         }
-        
+
         .btn-primary:hover {
             background-color: #219653;
         }
-        
+
         .btn-outline {
             background-color: transparent;
             border: 2px solid #27ae60;
             color: #27ae60;
         }
-        
+
         .btn-outline:hover {
             background-color: #27ae60;
             color: white;
         }
-        
+
         .section-title {
             font-size: 32px;
             margin-bottom: 30px;
@@ -80,7 +82,7 @@
             position: relative;
             color: #27ae60;
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
@@ -89,7 +91,7 @@
             background-color: #f1c40f;
             margin: 10px auto;
         }
-        
+
         /* Navigation */
         nav {
             background-color: #27ae60;
@@ -99,43 +101,43 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: 700;
             color: white;
         }
-        
+
         .logo span {
             color: #f1c40f;
         }
-        
+
         .nav-links {
             display: flex;
             align-items: center;
             list-style: none;
         }
-        
+
         .nav-links li {
             margin-left: 15px;
         }
-        
+
         .nav-links a {
             color: white;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        
+
         .nav-links a:hover {
             color: #f1c40f;
         }
-        
+
         .nav-login-btn {
             display: inline-flex;
             align-items: center;
@@ -148,23 +150,23 @@
             transition: all 0.3s ease;
             border: 2px solid #27ae60;
         }
-        
+
         .nav-login-btn span {
             margin-left: 8px;
             transition: transform 0.3s ease;
         }
-        
+
         .nav-login-btn:hover {
             background-color: #27ae60;
-            color:white;
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .nav-login-btn:hover span {
             transform: translateX(3px);
         }
-        
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -173,27 +175,27 @@
             font-size: 24px;
             cursor: pointer;
         }
-        
+
         /* Hero Section */
         .connect-hero {
             padding: 80px 0;
-            background: linear-gradient(rgba(39, 174, 96, 0.9), rgba(39, 174, 96, 0.9)), 
-                        url('farmers-connect.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(39, 174, 96, 0.9), rgba(39, 174, 96, 0.9)),
+                url('farmers-connect.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
         }
-        
+
         .connect-hero h1 {
             font-size: 42px;
             margin-bottom: 20px;
         }
-        
+
         .connect-hero p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto 30px;
         }
-        
+
         /* Tabs Navigation */
         .tabs {
             display: flex;
@@ -201,7 +203,7 @@
             margin: 40px 0;
             border-bottom: 1px solid #ddd;
         }
-        
+
         .tab {
             padding: 15px 30px;
             font-weight: 500;
@@ -209,32 +211,37 @@
             transition: all 0.3s ease;
             border-bottom: 3px solid transparent;
         }
-        
+
         .tab.active {
             color: #27ae60;
             border-bottom-color: #27ae60;
         }
-        
+
         .tab:hover {
             color: #27ae60;
         }
-        
+
         /* Tab Content */
         .tab-content {
             display: none;
             padding: 30px 0;
         }
-        
+
         .tab-content.active {
             display: block;
             animation: fadeIn 0.5s ease;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
-        
+
         /* Search and Filters */
         .search-filters {
             background-color: white;
@@ -243,12 +250,12 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
         }
-        
+
         .search-bar {
             display: flex;
             margin-bottom: 20px;
         }
-        
+
         .search-bar input {
             flex: 1;
             padding: 12px 15px;
@@ -256,7 +263,7 @@
             border-radius: 5px 0 0 5px;
             font-size: 16px;
         }
-        
+
         .search-bar button {
             padding: 0 20px;
             background-color: #27ae60;
@@ -265,38 +272,38 @@
             border-radius: 0 5px 5px 0;
             cursor: pointer;
         }
-        
+
         .filters {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
         }
-        
+
         .filter-group {
             flex: 1;
             min-width: 200px;
         }
-        
+
         .filter-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-        
+
         .filter-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        
+
         /* Connection Cards */
         .connections-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
         }
-        
+
         .connection-card {
             background-color: white;
             border-radius: 10px;
@@ -304,18 +311,18 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
-        
+
         .connection-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .card-header {
             padding: 20px;
             border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
         }
-        
+
         .avatar {
             width: 60px;
             height: 60px;
@@ -329,33 +336,33 @@
             font-weight: 600;
             margin-right: 15px;
         }
-        
+
         .user-info h3 {
             font-size: 18px;
             margin-bottom: 5px;
         }
-        
+
         .user-info p {
             color: #777;
             font-size: 14px;
         }
-        
+
         .rating {
             color: #f1c40f;
             margin-top: 5px;
         }
-        
+
         .card-body {
             padding: 20px;
         }
-        
+
         .crops-list {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 15px;
         }
-        
+
         .crop-tag {
             background-color: rgba(39, 174, 96, 0.1);
             color: #27ae60;
@@ -364,31 +371,31 @@
             font-size: 12px;
             font-weight: 500;
         }
-        
+
         .location {
             display: flex;
             align-items: center;
             color: #777;
             margin-bottom: 15px;
         }
-        
+
         .location i {
             margin-right: 8px;
         }
-        
+
         .card-footer {
             padding: 15px 20px;
             border-top: 1px solid #eee;
             display: flex;
             justify-content: space-between;
         }
-        
+
         /* Messages Section */
         .messages-container {
             display: flex;
             gap: 30px;
         }
-        
+
         .conversations-list {
             flex: 0 0 350px;
             background-color: white;
@@ -396,14 +403,14 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             overflow: hidden;
         }
-        
+
         .conversations-header {
             padding: 20px;
             border-bottom: 1px solid #eee;
             background-color: #27ae60;
             color: white;
         }
-        
+
         .conversation-item {
             padding: 15px 20px;
             border-bottom: 1px solid #eee;
@@ -412,15 +419,15 @@
             display: flex;
             align-items: center;
         }
-        
+
         .conversation-item:hover {
             background-color: #f9f9f9;
         }
-        
+
         .conversation-item.active {
             background-color: rgba(39, 174, 96, 0.1);
         }
-        
+
         .conversation-avatar {
             width: 50px;
             height: 50px;
@@ -433,16 +440,16 @@
             font-weight: 600;
             margin-right: 15px;
         }
-        
+
         .conversation-info {
             flex: 1;
         }
-        
+
         .conversation-info h4 {
             font-size: 16px;
             margin-bottom: 5px;
         }
-        
+
         .conversation-preview {
             color: #777;
             font-size: 14px;
@@ -450,12 +457,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .conversation-time {
             font-size: 12px;
             color: #999;
         }
-        
+
         .chat-window {
             flex: 1;
             background-color: white;
@@ -464,58 +471,58 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .chat-header {
             padding: 20px;
             border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
         }
-        
+
         .chat-messages {
             flex: 1;
             padding: 20px;
             overflow-y: auto;
             max-height: 400px;
         }
-        
+
         .message {
             margin-bottom: 20px;
             max-width: 70%;
         }
-        
+
         .message.received {
             align-self: flex-start;
         }
-        
+
         .message.sent {
             align-self: flex-end;
             margin-left: auto;
         }
-        
+
         .message-bubble {
             padding: 12px 15px;
             border-radius: 18px;
             background-color: #f1f1f1;
         }
-        
+
         .message.sent .message-bubble {
             background-color: #27ae60;
             color: white;
         }
-        
+
         .message-time {
             font-size: 12px;
             color: #999;
             margin-top: 5px;
         }
-        
+
         .chat-input {
             padding: 20px;
             border-top: 1px solid #eee;
             display: flex;
         }
-        
+
         .chat-input input {
             flex: 1;
             padding: 12px 15px;
@@ -523,21 +530,21 @@
             border-radius: 5px;
             margin-right: 10px;
         }
-        
+
         /* Events Section */
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
         }
-        
+
         .event-card {
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .event-image {
             height: 180px;
             background-color: #f1c40f;
@@ -547,11 +554,11 @@
             color: white;
             font-size: 20px;
         }
-        
+
         .event-content {
             padding: 20px;
         }
-        
+
         .event-date {
             display: flex;
             align-items: center;
@@ -559,40 +566,40 @@
             font-weight: 600;
             margin-bottom: 10px;
         }
-        
+
         .event-date i {
             margin-right: 8px;
         }
-        
+
         .event-content h3 {
             font-size: 18px;
             margin-bottom: 10px;
         }
-        
+
         .event-content p {
             color: #777;
             margin-bottom: 15px;
         }
-        
+
         .event-meta {
             display: flex;
             justify-content: space-between;
             color: #777;
             font-size: 14px;
         }
-        
+
         /* Animation Classes */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        
+
         .animate-on-scroll.animated {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Footer */
         footer {
             background-color: #333333;
@@ -600,42 +607,42 @@
             padding: 60px 0 20px;
             margin-top: 60px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 20px;
             color: #f1c40f;
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 10px;
         }
-        
+
         .footer-links a {
             transition: color 0.3s ease;
         }
-        
+
         .footer-links a:hover {
             color: #f1c40f;
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .social-links a {
             display: inline-block;
             width: 40px;
@@ -646,19 +653,19 @@
             line-height: 40px;
             transition: background-color 0.3s ease;
         }
-        
+
         .social-links a:hover {
             background-color: #f1c40f;
             color: #333333;
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 14px;
         }
-        
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .nav-links {
@@ -673,82 +680,86 @@
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 align-items: center;
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
+
             .nav-links li {
                 margin: 10px 0;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .section-title {
                 font-size: 28px;
             }
-            
+
             .connect-hero h1 {
                 font-size: 32px;
             }
-            
+
             .connect-hero p {
                 font-size: 18px;
             }
-            
+
             .tabs {
                 flex-wrap: wrap;
             }
-            
+
             .tab {
                 flex: 1;
                 min-width: 120px;
                 text-align: center;
             }
-            
+
             .messages-container {
                 flex-direction: column;
             }
-            
+
             .conversations-list {
                 flex: 1;
             }
-            
+
             .search-bar {
                 flex-direction: column;
             }
-            
+
             .search-bar input {
                 border-radius: 5px;
                 margin-bottom: 10px;
             }
-            
+
             .search-bar button {
                 border-radius: 5px;
                 padding: 12px;
             }
-            
+
             .filters {
                 flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="C:\Users\HP\Desktop\PRJ\homepage.html" class="logo">SmartFarm <span>Credit</span></a>
+            <a href="index.html" class="logo">
+                <i class="fas fa-seedling" style="color: var(--secondary); margin-right: 10px;"></i>
+                SmartFarm <span>Credit</span>
+            </a>
             <button class="mobile-menu-btn">☰</button>
             <ul class="nav-links">
-                <li><a href="C:\Users\HP\Desktop\PRJ\homepage.html" data-i18n="nav.home">Home</a></li>
-                <li><a href="C:\Users\HP\Desktop\PRJ\marketprice.html" data-i18n="nav.prices">Market Prices</a></li>
-                <li><a href="C:\Users\HP\Desktop\PRJ\guide.html" data-i18n="nav.guides">Crop Guides</a></li>
-                <li><a href="C:\Users\HP\Desktop\PRJ\loan.html" data-i18n="nav.loans">Loans</a></li>
-                <li><a href="C:\Users\HP\Desktop\PRJ\connect.html" data-i18n="nav.connect">Connect</a></li>
-                <li><a href="C:\Users\HP\Desktop\PRJ\contact.html" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="marketprice.html" data-i18n="nav.prices">Market Prices</a></li>
+                <li><a href="guide.html" data-i18n="nav.guides">Crop Guides</a></li>
+                <li><a href="loan.html" data-i18n="nav.loans">Loans</a></li>
+                <li><a href="connect.html" data-i18n="nav.connect">Connect</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 <li><a href="registration.html" class="nav-login-btn">Login <span>→</span></a></li>
             </ul>
         </div>
@@ -846,7 +857,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Nyamasheke, Western Province</span>
                         </div>
-                        <p>Specializing in high-quality Arabica coffee with 8 years of experience. Open to knowledge sharing and partnerships.</p>
+                        <p>Specializing in high-quality Arabica coffee with 8 years of experience. Open to knowledge
+                            sharing and partnerships.</p>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline">View Profile</button>
@@ -882,7 +894,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Rubavu, Western Province</span>
                         </div>
-                        <p>Growing organic vegetables using sustainable practices. Looking to connect with buyers and other vegetable farmers.</p>
+                        <p>Growing organic vegetables using sustainable practices. Looking to connect with buyers and
+                            other vegetable farmers.</p>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline">View Profile</button>
@@ -917,7 +930,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Musanze, Northern Province</span>
                         </div>
-                        <p>Expert in potato cultivation with 12 years experience. Willing to mentor new farmers and share best practices.</p>
+                        <p>Expert in potato cultivation with 12 years experience. Willing to mentor new farmers and
+                            share best practices.</p>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline">View Profile</button>
@@ -1002,7 +1016,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Kigali City</span>
                         </div>
-                        <p>We supply fresh produce to supermarkets and restaurants across Kigali. Looking for reliable farmers with consistent quality.</p>
+                        <p>We supply fresh produce to supermarkets and restaurants across Kigali. Looking for reliable
+                            farmers with consistent quality.</p>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline">View Profile</button>
@@ -1037,7 +1052,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Kigali & International</span>
                         </div>
-                        <p>Exporting high-quality Rwandan agricultural products to European markets. Seeking certified organic producers.</p>
+                        <p>Exporting high-quality Rwandan agricultural products to European markets. Seeking certified
+                            organic producers.</p>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline">View Profile</button>
@@ -1070,7 +1086,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Musanze, Northern Province</span>
                         </div>
-                        <p>Processing potatoes into chips, flour, and other products. Need consistent supply of quality potatoes year-round.</p>
+                        <p>Processing potatoes into chips, flour, and other products. Need consistent supply of quality
+                            potatoes year-round.</p>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline">View Profile</button>
@@ -1091,7 +1108,8 @@
                         <div class="conversation-avatar">KM</div>
                         <div class="conversation-info">
                             <h4>Kigali Markets Ltd</h4>
-                            <div class="conversation-preview">Thanks for the samples, we're interested in your beans...</div>
+                            <div class="conversation-preview">Thanks for the samples, we're interested in your beans...
+                            </div>
                         </div>
                         <div class="conversation-time">2h ago</div>
                     </div>
@@ -1107,7 +1125,8 @@
                         <div class="conversation-avatar">RE</div>
                         <div class="conversation-info">
                             <h4>Rwanda Export Co.</h4>
-                            <div class="conversation-preview">We received your coffee samples and would like to discuss...</div>
+                            <div class="conversation-preview">We received your coffee samples and would like to
+                                discuss...</div>
                         </div>
                         <div class="conversation-time">3d ago</div>
                     </div>
@@ -1124,7 +1143,8 @@
                     <div class="chat-messages">
                         <div class="message received">
                             <div class="message-bubble">
-                                Hello, I saw your profile and I'm interested in your beans. Do you have samples available?
+                                Hello, I saw your profile and I'm interested in your beans. Do you have samples
+                                available?
                             </div>
                             <div class="message-time">Yesterday, 2:30 PM</div>
                         </div>
@@ -1175,7 +1195,8 @@
                             <span>June 15, 2023 • 9:00 AM</span>
                         </div>
                         <h3>Modern Coffee Farming Techniques</h3>
-                        <p>Learn about advanced coffee cultivation methods, pest control, and quality improvement from experts.</p>
+                        <p>Learn about advanced coffee cultivation methods, pest control, and quality improvement from
+                            experts.</p>
                         <div class="event-meta">
                             <span><i class="fas fa-map-marker-alt"></i> Nyamasheke</span>
                             <span><i class="fas fa-users"></i> 25 attendees</span>
@@ -1198,7 +1219,8 @@
                             <span>June 22, 2023 • 10:00 AM</span>
                         </div>
                         <h3>Farmers Market & Networking</h3>
-                        <p>Connect with buyers, suppliers, and other farmers. Showcase your products and build partnerships.</p>
+                        <p>Connect with buyers, suppliers, and other farmers. Showcase your products and build
+                            partnerships.</p>
                         <div class="event-meta">
                             <span><i class="fas fa-map-marker-alt"></i> Kigali Convention Center</span>
                             <span><i class="fas fa-users"></i> 100+ attendees</span>
@@ -1221,7 +1243,8 @@
                             <span>July 5, 2023 • 2:00 PM</span>
                         </div>
                         <h3>Digital Tools for Farmers</h3>
-                        <p>Training session on using mobile apps, market platforms, and financial tools to grow your farming business.</p>
+                        <p>Training session on using mobile apps, market platforms, and financial tools to grow your
+                            farming business.</p>
                         <div class="event-meta">
                             <span><i class="fas fa-map-marker-alt"></i> Online Event</span>
                             <span><i class="fas fa-users"></i> Unlimited</span>
@@ -1286,62 +1309,62 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Mobile menu toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
+
+            mobileMenuBtn.addEventListener('click', function () {
                 navLinks.classList.toggle('active');
             });
-            
+
             // Tab functionality
             const tabs = document.querySelectorAll('.tab');
             const tabContents = document.querySelectorAll('.tab-content');
-            
+
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function () {
                     const tabId = this.getAttribute('data-tab');
-                    
+
                     // Remove active class from all tabs and contents
                     tabs.forEach(t => t.classList.remove('active'));
                     tabContents.forEach(c => c.classList.remove('active'));
-                    
+
                     // Add active class to current tab and content
                     this.classList.add('active');
                     document.getElementById(`${tabId}-tab`).classList.add('active');
                 });
             });
-            
+
             // Connection card interactions
             const messageButtons = document.querySelectorAll('.connection-card .btn-primary');
-            
+
             messageButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     // Switch to messages tab
                     tabs.forEach(t => t.classList.remove('active'));
                     tabContents.forEach(c => c.classList.remove('active'));
-                    
+
                     document.querySelector('.tab[data-tab="messages"]').classList.add('active');
                     document.getElementById('messages-tab').classList.add('active');
                 });
             });
-            
+
             // Conversation item interactions
             const conversationItems = document.querySelectorAll('.conversation-item');
-            
+
             conversationItems.forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     conversationItems.forEach(i => i.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
-            
+
             // Send message functionality
             const chatInput = document.querySelector('.chat-input input');
             const sendButton = document.querySelector('.chat-input .btn');
-            
-            sendButton.addEventListener('click', function() {
+
+            sendButton.addEventListener('click', function () {
                 if (chatInput.value.trim() !== '') {
                     const chatMessages = document.querySelector('.chat-messages');
                     const newMessage = document.createElement('div');
@@ -1355,34 +1378,35 @@
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }
             });
-            
+
             // Also send on Enter key
-            chatInput.addEventListener('keypress', function(e) {
+            chatInput.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     sendButton.click();
                 }
             });
-            
+
             // Scroll animations
             const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-            
+
             function checkScroll() {
                 animateOnScrollElements.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
-                    
+
                     if (elementTop < windowHeight - 100) {
                         element.classList.add('animated');
                     }
                 });
             }
-            
+
             // Initial check
             checkScroll();
-            
+
             // Check on scroll
             window.addEventListener('scroll', checkScroll);
         });
     </script>
 </body>
+
 </html>
