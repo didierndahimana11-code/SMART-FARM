@@ -4,9 +4,14 @@
     "description": "SmartFarm Credit - Root Orchestrator",
     "scripts": {
         "install-all": "cd BACK && npm install",
+        "build": "npm run install-all",
+        "start": "cd BACK && npm start",
         "server": "cd BACK && npm run dev",
         "client": "npx browser-sync start --proxy 'localhost:3000' --files 'FRONT/**/*' --port 3001",
         "dev": "npx concurrently \"npm run server\" \"npm run client\""
+    },
+    "engines": {
+        "node": "20.x"
     },
     "devDependencies": {
         "browser-sync": "^2.29.3",
