@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+BACK/node_modules/
+FRONT/node_modules/
+
+# Environment variables
+.env
+BACK/.env
+
+# Database
+BACK/*.db
+BACK/*.db-journal
+
+# Logs
+BACK/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo

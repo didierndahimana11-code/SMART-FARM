@@ -1,0 +1,63 @@
+/* SmartFarm Credit - Professional Color Palette Reference */
+
+:root {
+    /* Professional Blue Palette */
+    --primary-blue-900: #0c2340;
+    --primary-blue-800: #1e40af;
+    --primary-blue-700: #1d4ed8;
+    --primary-blue-600: #2563eb;
+    --primary-blue-500: #3b82f6;
+    
+    /* Forest Green Palette */
+    --green-900: #032e1b;
+    --green-800: #065f46;
+    --green-700: #047857;
+    --green-600: #059669;
+    --green-500: #10b981;
+    
+    /* Neutral Colors */
+    --neutral-950: #030712;
+    --neutral-900: #1f2937;
+    --neutral-800: #374151;
+    --neutral-700: #4b5563;
+    --neutral-600: #6b7280;
+    --neutral-500: #9ca3af;
+    --neutral-400: #d1d5db;
+    --neutral-300: #e5e7eb;
+    --neutral-200: #f3f4f6;
+    --neutral-100: #f9fafb;
+    
+    /* Accent Colors */
+    --red-600: #dc2626;
+    --red-500: #ef4444;
+    --yellow-400: #facc15;
+    --teal-500: #14b8a6;
+}
+
+/* Example Usage in Classes */
+
+.header-primary {
+    background: var(--primary-blue-800);
+    color: white;
+}
+
+.button-primary {
+    background: var(--primary-blue-800);
+    color: white;
+}
+
+.button-primary:hover {
+    background: var(--primary-blue-700);
+}
+
+.text-success {
+    color: var(--green-600);
+}
+
+.border-subtle {
+    border-color: var(--neutral-300);
+}
+
+.background-light {
+    background-color: var(--neutral-100);
+}

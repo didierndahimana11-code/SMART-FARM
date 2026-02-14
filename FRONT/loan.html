@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartFarm Credit - Smart Loans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --secondary: #f1c40f;
+            --cream: #fef9f4;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --danger: #e74c3c;
+            --success: #2ecc71;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .language-toggle {
+            display: flex;
+            margin-left: 20px;
+            border: 1px solid var(--secondary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            padding: 5px 10px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .lang-btn.active {
+            background: var(--secondary);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            animation: slideDown 1s ease-out;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .page-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 20px auto;
+            animation: expandWidth 1s ease-out 0.5s both;
+        }
+
+        /* Loan Calculator Section */
+        .loan-calculator {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .calculator-header h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calculator-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .input-with-unit {
+            display: flex;
+            align-items: center;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .input-with-unit input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .input-with-unit .unit {
+            padding: 0 15px;
+            background: var(--light);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+            -webkit-appearance: none;
+            height: 8px;
+            background: var(--light);
+            border-radius: 4px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #219653;
+            transform: scale(1.1);
+        }
+
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .calculator-results {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .result-value {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 15px;
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-calculate:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Loan Types Section */
+        .loan-types {
+            margin-bottom: 50px;
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .loan-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .loan-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+        }
+
+        .loan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .loan-card.featured::before {
+            background: var(--secondary);
+        }
+
+        .loan-card.featured {
+            border: 2px solid var(--secondary);
+        }
+
+        .loan-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .loan-card h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .loan-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .loan-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .loan-features li::before {
+            content: '✓';
+            margin-right: 10px;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .loan-rate {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .btn-apply {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-apply:hover {
+            background: #219653;
+            transform: translateY(-2px);
+        }
+
+        /* Application Section */
+        .application-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            animation: slideUp 0.8s ease-out 0.9s both;
+        }
+
+        .application-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+            outline: none;
+        }
+
+        .form-row {
+            grid-column: 1 / -1;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-check input {
+            margin-right: 10px;
+        }
+
+        .btn-submit {
+            padding: 15px 40px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #219653;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .loan-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .application-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#f1c40f"/>
+                    <path d="M3 12L12 17L21 12" stroke="#f1c40f" stroke-width="2"/>
+                    <path d="M3 17L12 22L21 17" stroke="#f1c40f" stroke-width="2"/>
+                    <circle cx="12" cy="12" r="2" fill="#f1c40f"/>
+                </svg>
+                SmartFarm <span>Credit</span>
+            </a>
+            
+            <div style="display: flex; align-items: center;">
+                <ul class="nav-links">
+                <li><a href="homepage.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="marketprice.html" data-i18n="nav.prices">Market Prices</a></li>
+                <li><a href="guide.html" data-i18n="nav.guides">Crop Guides</a></li>
+                <li><a href="loan.html" data-i18n="nav.loans">Loans</a></li>
+                <li><a href="connect.html" data-i18n="nav.connect">Connect</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                    <li><a href="login.html" data-i18n="nav.login">Login</a></li>
+                </ul>
+                
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="kin">KIN</button>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1 data-i18n="loans.title">SmartFarm Agricultural Loans</h1>
+            <p data-i18n="loans.subtitle">Affordable loans designed specifically for Rwandan farmers. Grow your farm with flexible financing options.</p>
+        </div>
+
+        <!-- Loan Calculator -->
+        <section class="loan-calculator">
+            <div class="calculator-header">
+                <h2 data-i18n="loans.calculator_title">Loan Calculator</h2>
+                <p data-i18n="loans.calculator_subtitle">Calculate your monthly payments and find the perfect loan for your needs</p>
+            </div>
+            
+            <div class="calculator-grid">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label data-i18n="loans.loan_amount">Loan Amount</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="loan-amount" min="50000" max="5000000" value="500000" step="50000">
+                            <div class="unit">RWF</div>
+                        </div>
+                        <input type="range" id="loan-amount-slider" min="50000" max="5000000" value="500000" step="50000">
+                        <div class="range-labels">
+                            <span>50,000 RWF</span>
+                            <span>5M RWF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label data-i18n="loans.loan_term">Loan Term</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="loan-term" min="3" max="36" value="12">
+                            <div class="unit" data-i18n="loans.months">Months</div>
+                        </div>
+                        <input type="range" id="loan-term-slider" min="3" max="36" value="12" step="1">
+                        <div class="range-labels">
+                            <span>3 <span data-i18n="loans.months">Months</span></span>
+                            <span>36 <span data-i18n="loans.months">Months</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label data-i18n="loans.interest_rate">Interest Rate</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="interest-rate" min="5" max="20" value="12" step="0.5">
+                            <div class="unit">%</div>
+                        </div>
+                        <input type="range" id="interest-rate-slider" min="5" max="20" value="12" step="0.5">
+                        <div class="range-labels">
+                            <span>5%</span>
+                            <span>20%</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-calculate" id="calculate-btn" data-i18n="loans.calculate">Calculate Payments</button>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-item">
+                        <span class="result-label" data-i18n="loans.monthly_payment">Monthly Payment</span>
+                        <div class="result-value" id="monthly-payment">0 RWF</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label" data-i18n="loans.total_interest">Total Interest</span>
+                        <div class="result-value" id="total-interest">0 RWF</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label" data-i18n="loans.total_payment">Total Payment</span>
+                        <div class="result-value" id="total-payment">0 RWF</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label" data-i18n="loans.interest_saved">Interest Saved vs Traditional</span>
+                        <div class="result-value" id="interest-saved">0 RWF</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loan Types -->
+        <section class="loan-types">
+            <div class="section-header">
+                <h2 data-i18n="loans.loan_types_title">Our Loan Products</h2>
+                <p data-i18n="loans.loan_types_subtitle">Choose the loan that best fits your farming needs</p>
+            </div>
+            
+            <div class="loan-cards">
+                <!-- Season Loan -->
+                <div class="loan-card">
+                    <div class="loan-icon">🌾</div>
+                    <h3 data-i18n="loans.season_loan">Seasonal Farming Loan</h3>
+                    <p data-i18n="loans.season_desc">For seed, fertilizer, and equipment for one growing season</p>
+                    <div class="loan-rate">12% APR</div>
+                    <ul class="loan-features">
+                        <li data-i18n="loans.feature_amount">Up to 2,000,000 RWF</li>
+                        <li data-i18n="loans.feature_term">3-12 month terms</li>
+                        <li data-i18n="loans.feature_approval">Fast approval (24-48 hours)</li>
+                        <li data-i18n="loans.feature_collateral">No collateral required</li>
+                    </ul>
+                    <button class="btn-apply" onclick="selectLoan('seasonal')" data-i18n="loans.apply_now">Apply Now</button>
+                </div>
+                
+                <!-- Equipment Loan -->
+                <div class="loan-card featured">
+                    <div class="loan-icon">🚜</div>
+                    <h3 data-i18n="loans.equipment_loan">Equipment Financing</h3>
+                    <p data-i18n="loans.equipment_desc">For purchasing farming equipment and machinery</p>
+                    <div class="loan-rate">10% APR</div>
+                    <ul class="loan-features">
+                        <li data-i18n="loans.feature_amount">Up to 5,000,000 RWF</li>
+                        <li data-i18n="loans.feature_term">12-36 month terms</li>
+                        <li data-i18n="loans.feature_grace">3-month grace period</li>
+                        <li data-i18n="loans.feature_insurance">Equipment insurance included</li>
+                    </ul>
+                    <button class="btn-apply" onclick="selectLoan('equipment')" data-i18n="loans.apply_now">Apply Now</button>
+                </div>
+                
+                <!-- Emergency Loan -->
+                <div class="loan-card">
+                    <div class="loan-icon">🚨</div>
+                    <h3 data-i18n="loans.emergency_loan">Emergency Crop Loan</h3>
+                    <p data-i18n="loans.emergency_desc">For unexpected expenses like pest control or irrigation</p>
+                    <div class="loan-rate">15% APR</div>
+                    <ul class="loan-features">
+                        <li data-i18n="loans.feature_amount">Up to 500,000 RWF</li>
+                        <li data-i18n="loans.feature_term">1-6 month terms</li>
+                        <li data-i18n="loans.feature_same_day">Same-day approval</li>
+                        <li data-i18n="loans.feature_mobile">Mobile money disbursement</li>
+                    </ul>
+                    <button class="btn-apply" onclick="selectLoan('emergency')" data-i18n="loans.apply_now">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="application-section">
+            <div class="section-header">
+                <h2 data-i18n="loans.apply_title">Apply for a Loan</h2>
+                <p data-i18n="loans.apply_subtitle">Fill out your details to start your application</p>
+            </div>
+            
+            <form id="loan-application-form" class="application-form">
+                <div class="form-group">
+                    <label for="applicant-name" data-i18n="loans.full_name">Full Name</label>
+                    <input type="text" id="applicant-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicant-phone" data-i18n="loans.phone_number">Phone Number</label>
+                    <input type="tel" id="applicant-phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicant-email" data-i18n="loans.email_address">Email Address</label>
+                    <input type="email" id="applicant-email" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicant-location" data-i18n="loans.district">District</label>
+                    <select id="applicant-location" class="form-control" required>
+                        <option value="" data-i18n="loans.select_district">Select District</option>
+                        <option>Kigali</option>
+                        <option>Musanze</option>
+                        <option>Rubavu</option>
+                        <option>Huye</option>
+                        <option>Nyagatare</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loan-type" data-i18n="loans.loan_type">Loan Type</label>
+                    <select id="loan-type" class="form-control" required>
+                        <option value="" data-i18n="loans.select_loan">Select Loan Type</option>
+                        <option value="seasonal" data-i18n="loans.season_loan">Seasonal Farming Loan</option>
+                        <option value="equipment" data-i18n="loans.equipment_loan">Equipment Financing</option>
+                        <option value="emergency" data-i18n="loans.emergency_loan">Emergency Crop Loan</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loan-amount-apply" data-i18n="loans.desired_amount">Desired Loan Amount</label>
+                    <input type="number" id="loan-amount-apply" class="form-control" min="50000" max="5000000" required>
+                </div>
+                
+                <div class="form-group form-row">
+                    <label for="loan-purpose" data-i18n="loans.loan_purpose">Loan Purpose</label>
+                    <textarea id="loan-purpose" class="form-control" rows="4" placeholder="Describe how you plan to use the loan..." required></textarea>
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" id="terms-agreement" required>
+                    <label for="terms-agreement" data-i18n="loans.terms_agree">I agree to the terms and conditions and confirm that all information provided is accurate.</label>
+                </div>
+                
+                <button type="submit" class="btn-submit" data-i18n="loans.submit_application">Submit Application</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                "nav.home": "Home",
+                "nav.prices": "Market Prices",
+                "nav.guides": "Crop Guides",
+                "nav.loans": "Loans",
+                "nav.connect": "Connect",
+                "nav.login": "Login",
+                "loans.title": "SmartFarm Agricultural Loans",
+                "loans.subtitle": "Affordable loans designed specifically for Rwandan farmers. Grow your farm with flexible financing options.",
+                "loans.calculator_title": "Loan Calculator",
+                "loans.calculator_subtitle": "Calculate your monthly payments and find the perfect loan for your needs",
+                "loans.loan_amount": "Loan Amount",
+                "loans.loan_term": "Loan Term",
+                "loans.months": "Months",
+                "loans.interest_rate": "Interest Rate",
+                "loans.calculate": "Calculate Payments",
+                "loans.monthly_payment": "Monthly Payment",
+                "loans.total_interest": "Total Interest",
+                "loans.total_payment": "Total Payment",
+                "loans.interest_saved": "Interest Saved vs Traditional",
+                "loans.loan_types_title": "Our Loan Products",
+                "loans.loan_types_subtitle": "Choose the loan that best fits your farming needs",
+                "loans.season_loan": "Seasonal Farming Loan",
+                "loans.season_desc": "For seed, fertilizer, and equipment for one growing season",
+                "loans.equipment_loan": "Equipment Financing",
+                "loans.equipment_desc": "For purchasing farming equipment and machinery",
+                "loans.emergency_loan": "Emergency Crop Loan",
+                "loans.emergency_desc": "For unexpected expenses like pest control or irrigation",
+                "loans.feature_amount": "Up to 2,000,000 RWF",
+                "loans.feature_term": "3-12 month terms",
+                "loans.feature_approval": "Fast approval (24-48 hours)",
+                "loans.feature_collateral": "No collateral required",
+                "loans.feature_grace": "3-month grace period",
+                "loans.feature_insurance": "Equipment insurance included",
+                "loans.feature_same_day": "Same-day approval",
+                "loans.feature_mobile": "Mobile money disbursement",
+                "loans.apply_now": "Apply Now",
+                "loans.apply_title": "Apply for a Loan",
+                "loans.apply_subtitle": "Fill out your details to start your application",
+                "loans.full_name": "Full Name",
+                "loans.phone_number": "Phone Number",
+                "loans.email_address": "Email Address",
+                "loans.district": "District",
+                "loans.select_district": "Select District",
+                "loans.loan_type": "Loan Type",
+                "loans.select_loan": "Select Loan Type",
+                "loans.desired_amount": "Desired Loan Amount",
+                "loans.loan_purpose": "Loan Purpose",
+                "loans.terms_agree": "I agree to the terms and conditions and confirm that all information provided is accurate.",
+                "loans.submit_application": "Submit Application"
+            },
+            kin: {
+                "nav.home": "Ahabanza",
+                "nav.prices": "Amafaranga y'isoko",
+                "nav.guides": "Amabwiriza y'ubuhinzi",
+                "nav.loans": "Inguzanyo",
+                "nav.connect": "Kwihuza",
+                "nav.login": "Injira",
+                "loans.title": "Inguzanyo z'ubuhinzi za SmartFarm",
+                "loans.subtitle": "Inguzanyo zihagije ziteganyirijwe mu bahinzi b'u Rwanda. Kura ubuhinzi bwawe ukoresheje inguzanyo zihuje n'ubushobozi bwawe.",
+                "loans.calculator_title": "Kubara Inguzanyo",
+                "loans.calculator_subtitle": "Kubara amafaranga uzishyura buri kwezi unone inguzanyo ihuje n'ibyifuzo byawe",
+                "loans.loan_amount": "Ingano y'inguzanyo",
+                "loans.loan_term": "Igihe cy'inguzanyo",
+                "loans.months": "Amezi",
+                "loans.interest_rate": "Ingano y'inguzanyo",
+                "loans.calculate": "Kubara Amafaranga",
+                "loans.monthly_payment": "Amafaranga yo kwishyura buri kwezi",
+                "loans.total_interest": "Umusanzu wose",
+                "loans.total_payment": "Amafaranga yose",
+                "loans.interest_saved": "Umusanzu wakizwe",
+                "loans.loan_types_title": "Inguzanyo zacu",
+                "loans.loan_types_subtitle": "Hitamo inguzanyo ihuje n'ubuhinzi bwawe",
+                "loans.season_loan": "Inguzanyo y'umwaka w'ubuhinzi",
+                "loans.season_desc": "Kugura imbuto, ifumbire, n'ibikoresho by'umwaka umwe",
+                "loans.equipment_loan": "Inguzanyo yo kugura ibikoresho",
+                "loans.equipment_desc": "Yo kugura ibikoresho n'imashini by'ubuhinzi",
+                "loans.emergency_loan": "Inguzanyo y'ihutirwa",
+                "loans.emergency_desc": "Kubara ibiciro bitarazwi nko kurwanya udukoko",
+                "loans.feature_amount": "Kugeza kuri RWF 2,000,000",
+                "loans.feature_term": "Inguzanyo yamezi 3-12",
+                "loans.feature_approval": "Kemerwa vuba (amasaha 24-48)",
+                "loans.feature_collateral": "Nta garanti ikenewe",
+                "loans.feature_grace": "Igihe cyo gutanga iminsi 3",
+                "loans.feature_insurance": "Insurance y'ibikoresho irimo",
+                "loans.feature_same_day": "Kemerwa munsi umwe",
+                "loans.feature_mobile": "Koherezwa kuri Mobile Money",
+                "loans.apply_now": "Andika Ubu",
+                "loans.apply_title": "Andika Inguzanyo",
+                "loans.apply_subtitle": "Uzuza ibisobanuro byawe kugira utangire gusaba inguzanyo",
+                "loans.full_name": "Amazina yose",
+                "loans.phone_number": "Numero ya telefone",
+                "loans.email_address": "Aderesi ya imeli",
+                "loans.district": "Akarere",
+                "loans.select_district": "Hitamo akarere",
+                "loans.loan_type": "Ubwoko bw'inguzanyo",
+                "loans.select_loan": "Hitamo ubwoko bw'inguzanyo",
+                "loans.desired_amount": "Ingano y'inguzanyo ushaka",
+                "loans.loan_purpose": "Intego y'inguzanyo",
+                "loans.terms_agree": "Nemera amategeko n'ibisabwa kandi nemeza ko amakuru mpa ari yo.",
+                "loans.submit_application": "Ohereza gusaba"
+            }
+        };
+
+        // Loan calculation function
+        function calculateLoan() {
+            const amount = parseFloat(document.getElementById('loan-amount').value);
+            const term = parseInt(document.getElementById('loan-term').value);
+            const rate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+            
+            // Calculate monthly payment using amortization formula
+            const monthlyPayment = (amount * rate * Math.pow(1 + rate, term)) / 
+                                   (Math.pow(1 + rate, term) - 1);
+            
+            const totalPayment = monthlyPayment * term;
+            const totalInterest = totalPayment - amount;
+            
+            // Traditional loan comparison (18% APR)
+            const traditionalRate = 0.18 / 12;
+            const traditionalPayment = (amount * traditionalRate * Math.pow(1 + traditionalRate, term)) / 
+                                        (Math.pow(1 + traditionalRate, term) - 1);
+            const traditionalTotal = traditionalPayment * term;
+            const interestSaved = traditionalTotal - totalPayment;
+            
+            // Update display
+            document.getElementById('monthly-payment').textContent = 
+                `${Math.round(monthlyPayment).toLocaleString()} RWF`;
+            document.getElementById('total-interest').textContent = 
+                `${Math.round(totalInterest).toLocaleString()} RWF`;
+            document.getElementById('total-payment').textContent = 
+                `${Math.round(totalPayment).toLocaleString()} RWF`;
+            document.getElementById('interest-saved').textContent = 
+                `${Math.round(interestSaved).toLocaleString()} RWF`;
+        }
+
+        // Sync sliders with input fields
+        function syncInputs() {
+            const amountInput = document.getElementById('loan-amount');
+            const amountSlider = document.getElementById('loan-amount-slider');
+            const termInput = document.getElementById('loan-term');
+            const termSlider = document.getElementById('loan-term-slider');
+            const rateInput = document.getElementById('interest-rate');
+            const rateSlider = document.getElementById('interest-rate-slider');
+            
+            amountInput.addEventListener('input', () => {
+                amountSlider.value = amountInput.value;
+                calculateLoan();
+            });
+            
+            amountSlider.addEventListener('input', () => {
+                amountInput.value = amountSlider.value;
+                calculateLoan();
+            });
+            
+            termInput.addEventListener('input', () => {
+                termSlider.value = termInput.value;
+                calculateLoan();
+            });
+            
+            termSlider.addEventListener('input', () => {
+                termInput.value = termSlider.value;
+                calculateLoan();
+            });
+            
+            rateInput.addEventListener('input', () => {
+                rateSlider.value = rateInput.value;
+                calculateLoan();
+            });
+            
+            rateSlider.addEventListener('input', () => {
+                rateInput.value = rateSlider.value;
+                calculateLoan();
+            });
+        }
+
+        // Select loan type
+        function selectLoan(type) {
+            const loanTypeSelect = document.getElementById('loan-type');
+            const amountInput = document.getElementById('loan-amount');
+            
+            switch(type) {
+                case 'seasonal':
+                    loanTypeSelect.value = 'seasonal';
+                    amountInput.value = '2000000';
+                    break;
+                case 'equipment':
+                    loanTypeSelect.value = 'equipment';
+                    amountInput.value = '5000000';
+                    break;
+                case 'emergency':
+                    loanTypeSelect.value = 'emergency';
+                    amountInput.value = '500000';
+                    break;
+            }
+            
+            // Scroll to application form
+            document.querySelector('.application-section').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Language switching
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up language toggle
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+            
+            // Mobile menu toggle
+            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+            
+            // Sync inputs and calculate initial loan
+            syncInputs();
+            calculateLoan();
+            
+            // Calculate button
+            document.getElementById('calculate-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                calculateLoan();
+            });
+            
+            // Loan application form submission
+            document.getElementById('loan-application-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('applicant-name').value,
+                    phone: document.getElementById('applicant-phone').value,
+                    email: document.getElementById('applicant-email').value,
+                    district: document.getElementById('applicant-location').value,
+                    loanType: document.getElementById('loan-type').value,
+                    amount: document.getElementById('loan-amount-apply').value,
+                    purpose: document.getElementById('loan-purpose').value
+                };
+                
+                // In a real application, this would be sent to a backend
+                alert(`Loan application submitted successfully!\n\nYou will receive an SMS confirmation shortly.`);
+                
+                // Reset form
+                this.reset();
+            });
+            
+            // Pre-fill calculator with URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('amount')) {
+                const amount = urlParams.get('amount');
+                document.getElementById('loan-amount').value = amount;
+                document.getElementById('loan-amount-slider').value = amount;
+                calculateLoan();
+            }
+        });
+    </script>
+</body>
+</html>
