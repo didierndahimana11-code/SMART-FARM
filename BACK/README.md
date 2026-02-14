@@ -7,7 +7,7 @@ SmartFarm Credit is a comprehensive digital agriculture platform designed to emp
 - **Agricultural Loans**: Fast approval loans tailored for farmers with flexible terms
 - **Market Prices**: Real-time pricing data for major crops across Rwanda
 - **Marketplace**: Direct farmer-to-buyer connections
-- **AI Chatbot**: Farming advice and guidance
+- **Expert Assistant**: Farming advice and guidance
 - **User Management**: Farmer and buyer profiles with verification
 
 ## Project Structure
@@ -215,7 +215,7 @@ npm install
    - Bank transfers
    - Cryptocurrency
 
-2. **Advanced AI**
+2. **Data Intelligence**
    - Machine learning for loan approval
    - Crop yield prediction
    - Weather-based insights
@@ -262,7 +262,7 @@ For issues and questions:
 - Loan application and management
 - Marketplace for crop trading
 - Real-time market prices
-- Basic AI chatbot
+- Professional Farming Assistant
 - Mobile-responsive design
 - Professional UI/UX
 
